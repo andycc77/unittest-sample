@@ -8,17 +8,27 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
-    public function testAProductHasAName()
+    /** @test */
+    public function a_product_has_a_name()
     {
         $product = new Product('iphone', 6000);
 
         $this->assertEquals('iphone', $product->name());
     }
 
-    public function testAProductHasAPrice()
+    /** @test */
+    public function a_product_has_a_price()
     {
         $product = new Product('Macbook', 10000);
 
         $this->assertEquals(10000, $product->price());
+    }
+
+    /** @test */
+    public function a_product_can_be_sold_with_discount()
+    {
+        $product = new Product('Macbook', 10000);
+        $product->setDiscount(8);
+        $this->assertEquals(8000, $product->price());
     }
 }

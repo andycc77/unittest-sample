@@ -32,4 +32,9 @@ class Product
     {
         return $this->price;
     }
+
+    public function setDiscount($discount)
+    {
+        $this->price *= ($discount/10);
+    }
 }
